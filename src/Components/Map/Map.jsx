@@ -3,11 +3,11 @@ import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} fro
 import ship from '../../Assets/ship.svg'
 
 const coords = [
-    [55.684758, 37.738521],
-    [45.684758, 37.738521],
-    [35.684758, 37.738521],
-    [25.684758, 37.738521],
-    [15.684758, 37.738521]
+    [55.702793, 37.626884],
+    [55.700120, 37.628456],
+    [55.692832, 37.629497],
+    [55.690338, 37.628099],
+    [55.689400, 37.676036]
 ]
 
 const style = {
