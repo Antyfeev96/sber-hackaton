@@ -1,11 +1,18 @@
 import React from 'react';
-import {GeolocationControl, Map, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
+import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
+import ship from '../../Assets/ship.svg'
 
+const coords = [
+    [55.684758, 37.738521],
+    [45.684758, 37.738521],
+    [35.684758, 37.738521],
+    [25.684758, 37.738521],
+    [15.684758, 37.738521]
+]
 
 const style = {
     display: 'flex',
     alignSelf: 'center',
-    // marginTop: '100px',
     width: '100%',
     height: '100vh'
 };
@@ -25,6 +32,18 @@ function MyMap() {
                     }
                 }
             >
+                {coords.map((item) => <Placemark
+                    options={{
+                        iconLayout: 'default#image',
+                        // Своё изображение иконки метки.
+                        iconImageHref: ship,
+                        // Размеры метки.
+                        iconImageSize: [30, 42],
+                        // Смещение левого верхнего угла иконки относительно
+                        // её "ножки" (точки привязки).
+                        iconImageOffset: [-5, -38]
+                    }}
+                    geometry={item} />)}
                 <GeolocationControl options={
                     {
                         float: 'right',
