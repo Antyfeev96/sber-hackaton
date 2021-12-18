@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import MyMap from "./Components/Map/Map";
+import Map from "./Components/Map/Map";
 
 function App() {
     return (
         <div>
-            <MyMap/>
+            <Map/>
         </div>
     );
 }
