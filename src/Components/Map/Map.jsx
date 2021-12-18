@@ -25,7 +25,7 @@ function MyMap() {
             }}>
             <Map
                 style={style}
-                defaultState={{center: [55.75, 37.57], zoom: 9, controls: []}}
+                defaultState={{center: [55.702793, 37.626884], zoom: 15, controls: []}}
                 options={
                     {
                         autoFitToViewport: "always",
