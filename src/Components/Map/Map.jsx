@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
 import Modal from '../Modal/Modal'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import { fetchAllTrams } from '../../Store/Reducers/TramsSlice'
+import { fetchTramById } from "../../Store/Reducers/TramSlice";
 import ship from '../../Assets/ship.svg'
 import {useModal} from "../../Hooks/useModal";
 
@@ -14,10 +16,21 @@ const style = {
 };
 
 function MyMap() {
-    // const dispatch = useDispatch()
-    const {trams} = useSelector(state => state.trams)
+    const dispatch = useDispatch()
+    const abc = useSelector(state => state.tramsState)
+    console.log({abc})
+    const { trams } = useSelector(state => state.tramsState)
+    // console.log({trams})
     const [isModalOpen, setModalOpen] = useModal(false)
 
+    useEffect(() => {
+        dispatch(fetchAllTrams())
+    }, [])
+
+    const handleClick = (id) => {
+        dispatch(fetchTramById({id}))
+        setModalOpen(true)
+    }
 
     return (
         <>
@@ -34,15 +47,15 @@ function MyMap() {
                         }
                     }
                 >
-                    {trams.map((tram) => <Placemark
-                        onClick={() => setModalOpen(true)}
+                    {trams && trams?.map((tram) => <Placemark
+                        onClick={() => handleClick(tram.id)}
                         options={{
                             iconLayout: 'default#image',
                             iconImageHref: ship,
                             iconImageSize: [30, 42],
                             iconImageOffset: [-5, -38]
                         }}
-                        geometry={tram.coords}/>)}
+                        geometry={[tram.latitude, tram.longitude]}/>)}
                     <GeolocationControl options={
                         {
                             float: 'right'

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux'
 import tramsReducer from './Reducers/TramsSlice'
+import tramReducer from './Reducers/TramSlice'
 
 const rootReducer = combineReducers({
-    trams: tramsReducer
+    tramsState: tramsReducer,
+    tramState: tramReducer
 })
 
 const store = configureStore({

@@ -1,4 +1,4 @@
-import React/*,{useState}*/ from 'react';
+import React, {useState} from 'react';
 import {
     MyModal,
     Content,
@@ -6,9 +6,10 @@ import {
     HeaderItem,
     Body
 } from './Modal.styles'
+import TramInfo from "../TramInfo/TramInfo";
 
 function Modal ({isModalOpen, setModalOpen}) {
-    // const [chosenOption, setChosenOption] = useState('tram')1
+    const [chosenOption, setChosenOption] = useState('tram')
     return (
         <>
             <MyModal visible={isModalOpen}
@@ -21,7 +22,7 @@ function Modal ({isModalOpen, setModalOpen}) {
                         <HeaderItem>Выбрать самокат</HeaderItem>
                     </Header>
                     <Body>
-
+                        {chosenOption === 'tram' && <TramInfo/>}
                     </Body>
                 </Content>
             </MyModal>
