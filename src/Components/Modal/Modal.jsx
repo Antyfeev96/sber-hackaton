@@ -8,7 +8,7 @@ import {
 } from './Modal.styles'
 
 function Modal ({isModalOpen, setModalOpen}) {
-    // const [chosenOption, setChosenOption] = useState('tram')
+    // const [chosenOption, setChosenOption] = useState('tram')1
     return (
         <>
             <MyModal visible={isModalOpen}
