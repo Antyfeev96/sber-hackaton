@@ -1,4 +1,4 @@
-import React from 'react';
+import React/*,{useState}*/ from 'react';
 import {
     MyModal,
     Content,
@@ -8,7 +8,7 @@ import {
 } from './Modal.styles'
 
 function Modal ({isModalOpen, setModalOpen}) {
-    console.log({isModalOpen})
+    // const [chosenOption, setChosenOption] = useState('tram')
     return (
         <>
             <MyModal visible={isModalOpen}

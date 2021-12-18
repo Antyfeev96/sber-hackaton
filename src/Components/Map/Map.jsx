@@ -1,7 +1,7 @@
 import React from 'react';
 import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
 import Modal from '../Modal/Modal'
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import ship from '../../Assets/ship.svg'
 import {useModal} from "../../Hooks/useModal";
 
@@ -14,7 +14,7 @@ const style = {
 };
 
 function MyMap() {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const {trams} = useSelector(state => state.trams)
     const [isModalOpen, setModalOpen] = useModal(false)
 
