@@ -1,16 +1,12 @@
 import React from 'react';
 import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
+import Modal from '../Modal/Modal'
+import {useDispatch, useSelector} from "react-redux";
 import ship from '../../Assets/ship.svg'
-
-const coords = [
-    [55.702793, 37.626884],
-    [55.700120, 37.628456],
-    [55.692832, 37.629497],
-    [55.690338, 37.628099],
-    [55.689400, 37.676036]
-]
+import {useModal} from "../../Hooks/useModal";
 
 const style = {
+    position: 'relative',
     display: 'flex',
     alignSelf: 'center',
     width: '100%',
@@ -18,45 +14,46 @@ const style = {
 };
 
 function MyMap() {
+    const dispatch = useDispatch()
+    const {trams} = useSelector(state => state.trams)
+    const [isModalOpen, setModalOpen] = useModal(false)
+
+
     return (
-        <YMaps
-            query={{
-                apikey: "5730d9fe-a72e-48bf-861f-3517d2d750be",
-            }}>
-            <Map
-                style={style}
-                defaultState={{center: [55.702793, 37.626884], zoom: 15, controls: []}}
-                options={
-                    {
-                        autoFitToViewport: "always",
+        <>
+            <YMaps
+                query={{
+                    apikey: "5730d9fe-a72e-48bf-861f-3517d2d750be",
+                }}>
+                <Map
+                    style={style}
+                    defaultState={{center: [55.702793, 37.626884], zoom: 15, controls: []}}
+                    options={
+                        {
+                            autoFitToViewport: "always",
+                        }
                     }
-                }
-            >
-                {coords.map((item) => <Placemark
-                    options={{
-                        iconLayout: 'default#image',
-                        // Своё изображение иконки метки.
-                        iconImageHref: ship,
-                        // Размеры метки.
-                        iconImageSize: [30, 42],
-                        // Смещение левого верхнего угла иконки относительно
-                        // её "ножки" (точки привязки).
-                        iconImageOffset: [-5, -38]
-                    }}
-                    geometry={item} />)}
-                <GeolocationControl options={
-                    {
-                        float: 'right',
-                        // position: {
-                        //     right: 25,
-                        //     bottom: 25
-                        // }
-                    }
-                } />
-                <RouteButton options={{ float: 'right' }} />
-                <ZoomControl options={{float: 'right'}}/>
-            </Map>
-        </YMaps>
+                >
+                    {trams.map((tram) => <Placemark
+                        onClick={() => setModalOpen(true)}
+                        options={{
+                            iconLayout: 'default#image',
+                            iconImageHref: ship,
+                            iconImageSize: [30, 42],
+                            iconImageOffset: [-5, -38]
+                        }}
+                        geometry={tram.coords}/>)}
+                    <GeolocationControl options={
+                        {
+                            float: 'right'
+                        }
+                    }/>
+                    <RouteButton options={{float: 'right'}}/>
+                    <ZoomControl options={{float: 'right'}}/>
+                </Map>
+                {isModalOpen && <Modal isModalOpen={isModalOpen} setModalOpen={setModalOpen}/>}
+            </YMaps>
+        </>
     );
 }
 
