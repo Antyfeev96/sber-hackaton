@@ -352,3 +352,7 @@ template {
 [hidden] {
     display: none;
 }
+
+* > img {
+    user-select: none;
+}

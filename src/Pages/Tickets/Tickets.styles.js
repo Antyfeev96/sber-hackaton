@@ -23,9 +23,15 @@ export const TicketItem = styled.div`
   height: 75px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 12px;
   border: 1px solid black;
+  transition: all 0.3s;
+
+  :hover {
+    cursor: pointer;
+    background: #b0adad;
+  }
 
   :nth-child(n + 2) {
     margin-top: 15px;

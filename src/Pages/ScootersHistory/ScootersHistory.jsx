@@ -16,7 +16,7 @@ function ScootersHistory() {
         navigate(`/trips/${scooter.id}`)
     }
 
-    const handleStatus = (status) => status === 'reserved' ? 'Забронирован' : 'Завершён'
+    const handleStatus = (status) => status === 'reserved' ? 'Забронирован' : <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Завершён</span>
 
     return (
         <Body>
@@ -31,10 +31,12 @@ function ScootersHistory() {
                     <div style={{marginRight: 0, marginLeft: 'auto'}}>Статус поездки</div>
                 </TicketsParams>
                 {scooters.map(scooter =>
-                    <TicketItem onClick={() => handleClick(scooter)} isReserved={scooter.status === 'reserved'}>
-                        <div>{scooter.date}</div>
-                        <div style={{marginLeft: 15}}>{scooter.name}</div>
-                        <div style={{marginRight: 0, marginLeft: 'auto'}}>{handleStatus(scooter.status)}</div>
+                    <TicketItem style={{
+                        justifyContent: 'space-between'
+                    }} onClick={() => handleClick(scooter)} isReserved={scooter.status === 'reserved'}>
+                        <div style={{marginLeft: 5}}>{scooter.date}</div>
+                        <div>{scooter.name}</div>
+                        <div style={{marginRight: 5}}>{handleStatus(scooter.status)}</div>
                     </TicketItem>
                 )}
             </TicketBlock>

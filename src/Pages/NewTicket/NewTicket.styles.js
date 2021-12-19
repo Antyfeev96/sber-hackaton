@@ -21,4 +21,6 @@ export const SelectBodyItem = styled.div`
   }
 `
 
-export const GoButton = styled(ReserveButton)``
+export const GoButton = styled(ReserveButton)`
+  cursor: pointer;
+`

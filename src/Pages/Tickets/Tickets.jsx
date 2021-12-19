@@ -20,13 +20,13 @@ function Tickets() {
                 <TicketsParams>
                     <div>Дата</div>
                     <div style={{marginLeft: 65}}>Место прибытия</div>
-                    <div style={{marginRight: 0, marginLeft: 'auto'}}>Статус поездки</div>
+                    <div style={{marginLeft: 'auto'}}>Статус поездки</div>
                 </TicketsParams>
                 {tickets.map(ticket =>
                     <TicketItem onClick={() => handleClick(ticket)}>
-                        <div>{ticket.date}</div>
-                        <div style={{marginLeft: 15}}>{ticket.pier}</div>
-                        <div style={{marginRight: 0, marginLeft: 'auto'}}>{ticket.status}</div>
+                        <div style={{marginLeft: 5}}>{ticket.date}</div>
+                        <div>{ticket.pier}</div>
+                        <div style={{marginRight: 5}}>{ticket.status}</div>
                     </TicketItem>
                 )}
             </TicketBlock>

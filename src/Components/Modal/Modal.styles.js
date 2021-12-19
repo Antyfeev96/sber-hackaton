@@ -21,7 +21,7 @@ export const HeaderItem = styled.div`
   align-items: center;
   width: 50%;
   height: 100%;
-  ${({ active }) => active && 'background-color: grey;'}
+  ${({ active }) => active && 'background-color: #d9d8d8;'}
 
   :hover {
     cursor: pointer;

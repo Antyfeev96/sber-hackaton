@@ -41,11 +41,17 @@ export const TicketItem = styled.div`
   align-items: center;
   justify-content: flex-start;
   font-size: 12px;
-  border: 1px solid black;
-  ${({ isReserved }) => isReserved && 'background-color: #31ec31;'}
+  border: 1px solid #000000;
+  transition: all 0.3s;
+  ${({isReserved}) => isReserved && 'background-color: #c6d6c6;'}
 
   :nth-child(n + 2) {
     margin-top: 15px;
+  }
+
+  :hover {
+    cursor: pointer;
+    background: #b0adad;
   }
 `
 
@@ -59,11 +65,8 @@ export const QR = styled.img`
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   > div {
-    text-align: center;
-    width: 80%;
     margin-top: 15px;
   }
 `

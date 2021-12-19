@@ -23,7 +23,8 @@ function Modal ({isModalOpen, setModalOpen}) {
     return (
         <>
             <MyModal visible={isModalOpen}
-                     cancelText="Отменить"
+                     footer={null}
+                     // cancelText="Отменить"
                      onCancel={() => handleClose()}
             >
                 <Content>
