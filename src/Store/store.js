@@ -6,6 +6,7 @@ import scootersReducer from './Reducers/ScootersListSlice'
 import scooterReducer from './Reducers/ScooterSlice'
 import ticketsReducer from './Reducers/TicketsSlice'
 import ticketReducer from './Reducers/TicketSlice'
+import scootersHistoryReducer from './Reducers/ScootersHistorySlice'
 
 const rootReducer = combineReducers({
     tramsState: tramsReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     scootersList: scootersReducer,
     scooterState: scooterReducer,
     ticketsState: ticketsReducer,
-    ticketState: ticketReducer
+    ticketState: ticketReducer,
+    scootersHistoryState: scootersHistoryReducer
 })
 
 const store = configureStore({

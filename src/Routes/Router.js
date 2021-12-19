@@ -6,6 +6,8 @@ import Map from "../Components/Map/Map"
 import Tickets from '../Pages/Tickets/Tickets'
 import Ticket from '../Pages/Ticket/Ticket'
 import NewTicket from '../Pages/NewTicket/NewTicket'
+import ScootersHistory from '../Pages/ScootersHistory/ScootersHistory'
+import Scooter from '../Pages/Scooter/Scooter'
 
 const Router = () => {
     return (
@@ -16,7 +18,8 @@ const Router = () => {
                     <Route path="/tickets/:id" element={<Ticket/>} exact />
                     <Route path="/tickets" element={<Tickets/>} />
                     <Route path="/home" element={<Map/>} />
-                    <Route path="/trips" element={<div>123</div>} />
+                    <Route path="/trips/:id" element={<Scooter />} exact />
+                    <Route path="/trips" element={<ScootersHistory />} />
                     <Route path="/" element={<Navigate to="/home" exact />} />
                 </Routes>
                 <NavMenu/>

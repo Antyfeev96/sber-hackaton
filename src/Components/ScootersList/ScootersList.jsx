@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import { Select } from 'antd';
 import { ScooterItem, ChargeBlock, IMG, ReserveButton, SelectBody, SelectBodyItem, GoButton } from './ScootersList.styles'
 import {setCurrentScooter, setReserveButtonClicked} from '../../Store/Reducers/ScooterSlice'
@@ -18,12 +19,17 @@ function ScootersList() {
     const dispatch = useDispatch()
     const {scooters} = useSelector(state => state.scootersList)
     const {scooter} = useSelector(state => state.scooterState)
+    const navigate = useNavigate()
 
     const handleChargeLevel = (level) => level >= 50 ? 'Заряжен' : 'Нужно зарядить'
 
     const handleBackgroundColor = (scooter) => {
         if (scooter.isReserved) return 'grey'
         return scooter.chargeLevel >= 50 ? 'white' : 'yellow'
+    }
+
+    const handleGoClick = () => {
+        navigate('/trips')
     }
 
     return (
@@ -62,7 +68,7 @@ function ScootersList() {
                                         )}
                                     </Select>
                                 </SelectBodyItem>
-                                <GoButton>Поехали</GoButton>
+                                <GoButton onClick={handleGoClick}>Поехали</GoButton>
                             </SelectBody>
                         :
                         <>
