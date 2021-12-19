@@ -21,8 +21,8 @@ function MyMap() {
     const [isModalOpen, setModalOpen] = useModal(false)
 
     useEffect(() => {
+        dispatch(fetchAllTrams())
         setInterval(() => dispatch(fetchAllTrams()), 5000)
-        // dispatch(fetchAllTrams())
     }, [])
 
     const handleClick = (id) => {
