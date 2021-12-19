@@ -9,31 +9,36 @@ const initialState = {
             chargeLevel: 85,
             name: 1,
             onCharge: false,
-            isReserved: false
+            isReserved: false,
+            reserveButtonClicked: false
         },
         {
             chargeLevel: 20,
             name: 1,
             onCharge: false,
-            isReserved: true
+            isReserved: true,
+            reserveButtonClicked: false
         },
         {
             chargeLevel: 33,
             name: 1,
             onCharge: true,
-            isReserved: false
+            isReserved: false,
+            reserveButtonClicked: false
         },
         {
             chargeLevel: 78,
             name: 1,
             onCharge: false,
-            isReserved: false
+            isReserved: false,
+            reserveButtonClicked: false
         },
         {
             chargeLevel: 88,
             name: 1,
             onCharge: false,
-            isReserved: true
+            isReserved: true,
+            reserveButtonClicked: false
         },
 
     ]

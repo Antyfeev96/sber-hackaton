@@ -1,21 +1,30 @@
 import React from 'react';
-
+import {Link} from "react-router-dom";
 import {LinkItem, LinksBlock, LinkSVG, StyledFooter} from './NavMenu.styles'
 
 import geolocation from '../../Assets/geolocation.svg'
-import {Link} from "react-router-dom";
+import scooter from '../../Assets/scooter.svg'
+import tickets from '../../Assets/tickets.svg'
 
 const pages = [
     {
         key: 1,
-        to: '/home',
-        name: 'Город'
+        to: '/tickets',
+        src: tickets,
+        name: 'Мои билеты'
     },
     {
         key: 2,
+        to: '/home',
+        src: geolocation,
+        name: 'Город'
+    },
+    {
+        key: 3,
         to: '/trips',
-        name: 'Мои поездки'
-    }
+        src: scooter,
+        name: 'Самокат'
+    },
 ]
 
 function NavMenu() {
@@ -25,7 +34,7 @@ function NavMenu() {
                 {pages.map(page =>
                     <Link to={page.to}>
                         <LinkItem key={page.key}>
-                            <LinkSVG src={geolocation} alt="geolocation"/>
+                            <LinkSVG src={page.src} alt="geolocation"/>
                             <span>{page.name}</span>
                         </LinkItem>
                     </Link>)}

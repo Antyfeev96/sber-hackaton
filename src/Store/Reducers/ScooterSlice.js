@@ -13,11 +13,14 @@ export const scooterSlice = createSlice(({
         setCurrentScooter: (state, action) => {
             state.scooter = action.payload
         },
+        setReserveButtonClicked: (state, action) => {
+            state.scooter.reserveButtonClicked = action.payload
+        },
         clearState: () => initialState
     },
     extraReducers: {}
 }))
 
-export const { setCurrentScooter, clearState } = scooterSlice.actions
+export const { setCurrentScooter, clearState, setReserveButtonClicked } = scooterSlice.actions
 
 export default scooterSlice.reducer

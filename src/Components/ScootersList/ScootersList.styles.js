@@ -25,7 +25,7 @@ export const IMG = styled.img`
   height: 200px;
 `
 
-export const ReserveButton = styled.div`
+export const ReserveButton = styled.button`
   width: 100%;
   height: 50px;
   margin-top: 25px;
@@ -35,3 +35,19 @@ export const ReserveButton = styled.div`
   justify-content: center;
   border: 2px solid black;
 `
+
+export const SelectBody = styled.div`
+  margin-top: 15px;
+`
+
+export const SelectBodyItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  :last-of-type {
+    margin-top: 15px;
+  }
+`
+
+export const GoButton = styled(ReserveButton)``

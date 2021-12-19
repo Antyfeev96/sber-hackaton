@@ -1,8 +1,18 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {ScooterItem, ChargeBlock, IMG, ReserveButton} from './ScootersList.styles'
-import {setCurrentScooter} from '../../Store/Reducers/ScooterSlice'
+import { Select } from 'antd';
+import { ScooterItem, ChargeBlock, IMG, ReserveButton, SelectBody, SelectBodyItem, GoButton } from './ScootersList.styles'
+import {setCurrentScooter, setReserveButtonClicked} from '../../Store/Reducers/ScooterSlice'
 import scooterImg from '../../Assets/scooter.png'
+
+const riverStops = [
+    'Автозаводский мост',
+    'ЗИЛ',
+    'ЗИЛ-Юг',
+    'Нагатинская набережная',
+    'Южный речной вокзал'
+]
+const { Option } = Select;
 
 function ScootersList() {
     const dispatch = useDispatch()
@@ -15,10 +25,6 @@ function ScootersList() {
         if (scooter.isReserved) return 'grey'
         return scooter.chargeLevel >= 50 ? 'white' : 'yellow'
     }
-
-    useEffect(() => {
-        console.log({scooter})
-    }, [])
 
     return (
         <div>
@@ -33,8 +39,37 @@ function ScootersList() {
                         <div
                             style={{marginLeft: 30}}>{scooter.onCharge ? 'На зарядке' : handleChargeLevel(scooter.chargeLevel)}</div>
                     </ScooterItem>
-                    <IMG src={scooterImg} alt="Картинка самоката"/>
-                    <ReserveButton>Забронировать по подписке</ReserveButton>
+                    {scooter.reserveButtonClicked
+                        ?
+                            <SelectBody>
+                                <SelectBodyItem>
+                                    <div>Откуда</div>
+                                    <Select defaultValue={riverStops[0]} style={{ width: 200 }}>
+                                        {riverStops.map(stop =>
+                                            <Option value={stop}>
+                                                {stop}
+                                            </Option>
+                                        )}
+                                    </Select>
+                                </SelectBodyItem>
+                                <SelectBodyItem>
+                                    <div>Куда</div>
+                                    <Select defaultValue={riverStops[4]} style={{ width: 200 }}>
+                                        {riverStops.map(stop =>
+                                            <Option value={stop}>
+                                                {stop}
+                                            </Option>
+                                        )}
+                                    </Select>
+                                </SelectBodyItem>
+                                <GoButton>Поехали</GoButton>
+                            </SelectBody>
+                        :
+                        <>
+                            <IMG src={scooterImg} alt="Картинка самоката"/>
+                            <ReserveButton onClick={() => dispatch(setReserveButtonClicked(true))}>Забронировать по
+                                подписке</ReserveButton>
+                        </>}
                 </>
                 :
                 scooters.map(scooter =>

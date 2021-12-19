@@ -2,6 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/Assets/geolocation.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Assets/kick-scooter-svgrepo-com.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Assets/scooter.svg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Assets/ship.svg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Assets/tickets.svg" charset="UTF-8" />
   </component>
 </project>
