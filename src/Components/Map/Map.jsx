@@ -43,7 +43,10 @@ function MyMap() {
 
     useEffect(() => {
         dispatch(fetchAllTrams())
-        setInterval(() => dispatch(fetchAllTrams()), 5000)
+        const interval = setInterval(() => dispatch(fetchAllTrams()), 5000)
+        return () => {
+            clearInterval(interval)
+        }
     }, [])
 
     const handleClick = (id) => {
