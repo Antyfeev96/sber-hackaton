@@ -6,6 +6,7 @@ import { fetchAllTrams } from '../../Store/Reducers/TramsSlice'
 import { fetchTramById } from "../../Store/Reducers/TramSlice";
 import ship from '../../Assets/ship.svg'
 import busImg from '../../Assets/bus.svg'
+import scooterMap from '../../Assets/scooterMap.svg'
 import {useModal} from "../../Hooks/useModal";
 
 const style = {
@@ -15,6 +16,26 @@ const style = {
     width: '100%',
     height: '100vh'
 };
+
+const scooters = [
+    {
+        id: 1,
+        coords: [55.702416, 37.626440]
+    },
+    {
+        id: 2,
+        coords: [55.699771, 37.628879]
+    },
+    {
+        id: 3,
+        coords: [55.689854, 37.627857]
+    },
+    {
+        id: 4,
+        coords: [55.689345, 37.675136]
+    },
+
+]
 
 const buses = [
     {
@@ -69,6 +90,16 @@ function MyMap() {
                         }
                     }
                 >
+                    {scooters?.map(scooter => <Placemark
+                        key={scooter.id}
+                        options={{
+                            iconLayout: 'default#image',
+                            iconImageHref: scooterMap,
+                            iconImageSize: [30, 42],
+                            iconImageOffset: [-5, -38]
+                        }}
+                        geometry={scooter.coords}
+                    />)}
                     {buses?.map(bus => <Placemark
                         key={bus.id}
                         options={{
