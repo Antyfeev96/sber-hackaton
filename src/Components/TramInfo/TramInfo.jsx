@@ -1,5 +1,5 @@
 import React from 'react';
-import { Body } from "./TramInfo.styles";
+import { Body, Button } from "./TramInfo.styles";
 import {useSelector} from "react-redux";
 
 function TramInfo() {
@@ -35,6 +35,7 @@ function TramInfo() {
                         {handleServiceName(service)}
                     </li>)}
             </ul>
+            <Button>Купить билет</Button>
         </>
     );
 }
