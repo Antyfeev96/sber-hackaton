@@ -21,7 +21,7 @@ export const fetchTramById = createAsyncThunk(
     'trams/fetchTramById',
     async ({ id }, thunkAPI) => {
         try {
-            const response = await axios.get(`https://honey-team-app.herokuapp.com/boat/get?boatId=${id}`)
+            const response = await axios.get(`https://app123456789086754.herokuapp.com/boat/get?boatId=${id}`)
             console.log({data: response.data})
             return response.data;
         } catch (e) {
