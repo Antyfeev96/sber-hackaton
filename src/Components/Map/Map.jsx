@@ -17,13 +17,11 @@ const style = {
 
 function MyMap() {
     const dispatch = useDispatch()
-    const abc = useSelector(state => state.tramsState)
-    console.log({abc})
     const { trams } = useSelector(state => state.tramsState)
-    // console.log({trams})
     const [isModalOpen, setModalOpen] = useModal(false)
 
     useEffect(() => {
+        setInterval(() => dispatch(fetchAllTrams()), 5000)
         // dispatch(fetchAllTrams())
     }, [])
 
@@ -48,6 +46,7 @@ function MyMap() {
                     }
                 >
                     {trams && trams?.map((tram) => <Placemark
+                        key={tram.id}
                         onClick={() => handleClick(tram.id)}
                         options={{
                             iconLayout: 'default#image',
