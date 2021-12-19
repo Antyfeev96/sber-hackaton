@@ -55,7 +55,6 @@ const initialState = {
             boatName: 'Синичка',
             services: ['WI_FI', 'TOILET', 'SCOOTER', 'VENDING_MACHINE']
         },
-
     ]
 }
 
@@ -63,7 +62,7 @@ export const fetchAllTrams = createAsyncThunk(
     'trams/fetchAll',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get('http://192.168.31.222:8888/boat/get/all')
+            const response = await axios.get('https://honey-team-app.herokuapp.com/boat/get/all')
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message)

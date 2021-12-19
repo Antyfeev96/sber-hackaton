@@ -24,7 +24,7 @@ function MyMap() {
     const [isModalOpen, setModalOpen] = useModal(false)
 
     useEffect(() => {
-        dispatch(fetchAllTrams())
+        // dispatch(fetchAllTrams())
     }, [])
 
     const handleClick = (id) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Body, Button } from "./TramInfo.styles";
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 function TramInfo() {
     const { tram } = useSelector(state => state.tramState)
@@ -35,7 +36,7 @@ function TramInfo() {
                         {handleServiceName(service)}
                     </li>)}
             </ul>
-            <Button>Купить билет</Button>
+            <Link to="/tickets/newTicket"><Button>Купить билет</Button></Link>
         </>
     );
 }

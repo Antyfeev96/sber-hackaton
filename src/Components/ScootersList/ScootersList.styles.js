@@ -21,7 +21,7 @@ export const ChargeBlock = styled.div`
 export const IMG = styled.img`
   display: block;
   margin: 25px auto 0;
-  width: 128px;
+  width: 200px;
   height: 200px;
 `
 
