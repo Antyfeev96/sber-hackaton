@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux'
+import {configureStore} from '@reduxjs/toolkit';
+import {combineReducers} from 'redux'
 import tramsReducer from './Reducers/TramsSlice'
 import tramReducer from './Reducers/TramSlice'
 import scootersReducer from './Reducers/ScootersListSlice'

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {Body, TicketBlock, TicketItem, TicketsParams, QR} from "../Tickets/Tickets.styles";
+import {Body, QR, TicketBlock, TicketItem, TicketsParams} from "../Tickets/Tickets.styles";
 import qr from '../../Assets/qr.png'
 
 function Ticket() {

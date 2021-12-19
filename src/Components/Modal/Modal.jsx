@@ -1,14 +1,8 @@
 import React, {useState} from 'react';
-import {
-    MyModal,
-    Content,
-    Header,
-    HeaderItem,
-    Body
-} from './Modal.styles'
+import {Body, Content, Header, HeaderItem, MyModal} from './Modal.styles'
 import TramInfo from "../TramInfo/TramInfo";
 import ScootersList from "../ScootersList/ScootersList";
-import { clearState } from '../../Store/Reducers/ScooterSlice'
+import {clearState} from '../../Store/Reducers/ScooterSlice'
 import {useDispatch} from "react-redux";
 
 function Modal ({isModalOpen, setModalOpen}) {

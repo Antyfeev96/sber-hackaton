@@ -32,8 +32,8 @@ function NavMenu() {
         <StyledFooter>
             <LinksBlock>
                 {pages.map(page =>
-                    <Link to={page.to}>
-                        <LinkItem key={page.key}>
+                    <Link key={page.key} to={page.to}>
+                        <LinkItem>
                             <LinkSVG src={page.src} alt="geolocation"/>
                             <span>{page.name}</span>
                         </LinkItem>

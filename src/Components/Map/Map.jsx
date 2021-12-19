@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {GeolocationControl, Map, Placemark, RouteButton, YMaps, ZoomControl} from 'react-yandex-maps';
 import Modal from '../Modal/Modal'
 import {useDispatch, useSelector} from "react-redux";
-import { fetchAllTrams } from '../../Store/Reducers/TramsSlice'
-import { fetchTramById } from "../../Store/Reducers/TramSlice";
+import {fetchAllTrams} from '../../Store/Reducers/TramsSlice'
+import {fetchTramById} from "../../Store/Reducers/TramSlice";
 import ship from '../../Assets/ship.svg'
 import busImg from '../../Assets/bus.svg'
 import scooterMap from '../../Assets/scooterMap.svg'
@@ -68,7 +68,7 @@ function MyMap() {
         return () => {
             clearInterval(interval)
         }
-    }, [])
+    }, [dispatch])
 
     const handleClick = (id) => {
         dispatch(fetchTramById({id}))

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from 'react-router-dom';
-import {Body, TicketBlock, TicketsParams, TicketItem} from './Tickets.styles'
-import { setCurrentTicket } from '../../Store/Reducers/TicketSlice'
+import {Body, TicketBlock, TicketItem, TicketsParams} from './Tickets.styles'
+import {setCurrentTicket} from '../../Store/Reducers/TicketSlice'
 
 function Tickets() {
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ function Tickets() {
                     <div style={{marginLeft: 'auto'}}>Статус поездки</div>
                 </TicketsParams>
                 {tickets.map(ticket =>
-                    <TicketItem onClick={() => handleClick(ticket)}>
+                    <TicketItem key={ticket.id} onClick={() => handleClick(ticket)}>
                         <div style={{marginLeft: 5}}>{ticket.date}</div>
                         <div>{ticket.pier}</div>
                         <div style={{marginRight: 5}}>{ticket.status}</div>

@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { Select } from 'antd';
-import { ScooterItem, ChargeBlock, IMG, ReserveButton, SelectBody, SelectBodyItem, GoButton } from './ScootersList.styles'
+import {Select} from 'antd';
+import {ChargeBlock, GoButton, IMG, ReserveButton, ScooterItem, SelectBody, SelectBodyItem} from './ScootersList.styles'
 import {setCurrentScooter, setReserveButtonClicked} from '../../Store/Reducers/ScooterSlice'
 import scooterImg from '../../Assets/scooter.png'
 

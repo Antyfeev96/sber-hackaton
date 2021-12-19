@@ -1,6 +1,6 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {Body, Bonuses, TicketBlock, TicketItem, TicketsParams, Info} from "../ScootersHistory/ScootersHistory.styles";
+import {useSelector} from "react-redux";
+import {Body, Bonuses, Info, TicketBlock, TicketItem, TicketsParams} from "../ScootersHistory/ScootersHistory.styles";
 import bonus from "../../Assets/bonus.png";
 import scooterImg from '../../Assets/scooter.png'
 import {IMG} from "../../Components/ScootersList/ScootersList.styles";

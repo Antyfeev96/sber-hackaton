@@ -1,5 +1,5 @@
 import React from 'react';
-import { Body, Button } from "./TramInfo.styles";
+import {Button} from "./TramInfo.styles";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -29,6 +29,7 @@ function TramInfo() {
     const handleServiceIcon = (name) => {
         switch (name) {
             case 'WI_FI':
+            default:
                 return wifi;
             case 'TOILET':
                 return toilet;
@@ -41,7 +42,7 @@ function TramInfo() {
 
     return (
         <>
-            <h1>{tram.boatName}</h1>
+            <h1>{tram.name}</h1>
             <div>Координаты: [{tram.latitude}, {tram.longitude}]</div>
             <div>Время отправления: {tram.destinationTime}</div>
             <div>Следующая остановка: {tram.nextStopName}</div>
