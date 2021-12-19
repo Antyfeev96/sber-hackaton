@@ -17,7 +17,7 @@ function Scooter() {
             <TicketBlock>
                 <TicketsParams>
                     <div>Дата</div>
-                    <div style={{marginLeft: 65}}>Название скутера</div>
+                    <div style={{marginLeft: 65}}>Название самоката</div>
                     <div style={{marginRight: 0, marginLeft: 'auto'}}>Статус поездки</div>
                 </TicketsParams>
                     <TicketItem>

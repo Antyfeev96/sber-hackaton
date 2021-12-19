@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { fetchAllTrams } from '../../Store/Reducers/TramsSlice'
 import { fetchTramById } from "../../Store/Reducers/TramSlice";
 import ship from '../../Assets/ship.svg'
+import busImg from '../../Assets/bus.svg'
 import {useModal} from "../../Hooks/useModal";
 
 const style = {
@@ -14,6 +15,26 @@ const style = {
     width: '100%',
     height: '100vh'
 };
+
+const buses = [
+    {
+        id: 1,
+        coords: [55.699645, 37.649057]
+    },
+    {
+        id: 2,
+        coords: [55.684401, 37.623130]
+    },
+    {
+        id: 3,
+        coords: [55.691125, 37.617768]
+    },
+    {
+        id: 4,
+        coords: [55.693749, 37.664037]
+    },
+
+]
 
 function MyMap() {
     const dispatch = useDispatch()
@@ -45,6 +66,16 @@ function MyMap() {
                         }
                     }
                 >
+                    {buses?.map(bus => <Placemark
+                        key={bus.id}
+                        options={{
+                            iconLayout: 'default#image',
+                            iconImageHref: busImg,
+                            iconImageSize: [30, 42],
+                            iconImageOffset: [-5, -38]
+                        }}
+                        geometry={bus.coords}
+                    />)}
                     {trams && trams?.map((tram) => <Placemark
                         key={tram.id}
                         onClick={() => handleClick(tram.id)}

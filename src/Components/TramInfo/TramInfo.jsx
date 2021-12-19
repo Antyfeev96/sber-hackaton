@@ -3,6 +3,11 @@ import { Body, Button } from "./TramInfo.styles";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
+import wifi from '../../Assets/wifi.svg'
+import toilet from '../../Assets/toilet.svg'
+import scooterLogo from '../../Assets/scooter-logo.svg'
+import vending from '../../Assets/vending.svg'
+
 function TramInfo() {
     const { tram } = useSelector(state => state.tramState)
     console.log({tram})
@@ -21,6 +26,19 @@ function TramInfo() {
         }
     }
 
+    const handleServiceIcon = (name) => {
+        switch (name) {
+            case 'WI_FI':
+                return wifi;
+            case 'TOILET':
+                return toilet;
+            case 'SCOOTER':
+                return scooterLogo;
+            case 'VENDING_MACHINE':
+                return vending
+        }
+    }
+
     return (
         <>
             <h1>{tram.boatName}</h1>
@@ -33,7 +51,11 @@ function TramInfo() {
             <ul>
                 {tram?.services?.map((service, index) =>
                     <li key={index}>
-                        {handleServiceName(service)}
+                        <img style={{
+                            width: 25,
+                            height: 25
+                        }} src={handleServiceIcon(service)} alt="service"/>
+                        <span style={{marginLeft: 15}}>{handleServiceName(service)}</span>
                     </li>)}
             </ul>
             <Link to="/tickets/newTicket"><Button>Купить билет</Button></Link>

@@ -8,31 +8,31 @@ const initialState = {
         {
             id: 1,
             date: '19.12.21, 19:00',
-            name: 'Скутер 1',
+            name: 'Самокат 1',
             status: 'reserved'
         },
         {
             id: 2,
             date: '18.12.21, 19:00',
-            name: 'Скутер 2',
+            name: 'Самокат 2',
             status: 'closed'
         },
         {
             id: 3,
             date: '17.12.21, 19:00',
-            name: 'Скутер 3',
+            name: 'Самокат 3',
             status: 'closed'
         },
         {
             id: 4,
             date: '16.12.21, 19:00',
-            name: 'Скутер 4',
+            name: 'Самокат 4',
             status: 'closed'
         },
         {
             id: 5,
             date: '15.12.21, 19:00',
-            name: 'Скутер 5',
+            name: 'Самокат 5',
             status: 'closed'
         },
     ],

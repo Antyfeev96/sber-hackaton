@@ -23,6 +23,7 @@ const Router = () => {
                     <Route path="/" element={<Navigate to="/home" exact />} />
                 </Routes>
                 <NavMenu/>
+                <div>Автор иконок: <a href="https://www.flaticon.com/ru/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/ru/" title="Flaticon">www.flaticon.com</a></div>
             </BrowserRouter>
         </Layout>
     )
